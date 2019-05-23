@@ -39,49 +39,19 @@ global enableGPU;
 enableGPU = false;
 
 
-    target_sz = [seq.init_rect(1,4), seq.init_rect(1,3)];
-    pos = [seq.init_rect(1,2), seq.init_rect(1,1)] + floor(target_sz/2);
+target_sz = [seq.init_rect(1,4), seq.init_rect(1,3)];
+pos = [seq.init_rect(1,2), seq.init_rect(1,1)] + floor(target_sz/2);
 
-    [rect_position, time] = tracker_HC_HCFT(s_frame, pos, target_sz, ...
-    padding, lambda, output_sigma_factor, interp_factor,config); %tracker_ensemble_RPnew1 
+[rect_position, time] = tracker_HC_HCFT(s_frame, pos, target_sz, ...
+padding, lambda, output_sigma_factor, interp_factor,config); %tracker_ensemble_RPnew1 
 
-    fps = numel(s_frame)/time;
-    
-    disp(['fps: ' num2str(fps)])
+fps = numel(s_frame)/time;
+
+disp(['fps: ' num2str(fps)])
     
 results.type = 'rect';
 results.res = rect_position;%each row is a rectangle
 results.fps = fps;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+end
 
